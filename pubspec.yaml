@@ -79,6 +79,8 @@ dependencies:
   # For infinite scrolling
   infinite_scroll_pagination: ^4.0.0
 
+  # Located the path of local device storage
+  path_provider: ^2.0.12
 
 dev_dependencies:
   flutter_test:
