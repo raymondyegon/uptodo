@@ -6,57 +6,57 @@ part of 'onboarding_cubit.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_InitialOnboardingState _$$_InitialOnboardingStateFromJson(
+_$InitialOnboardingStateImpl _$$InitialOnboardingStateImplFromJson(
         Map<String, dynamic> json) =>
-    _$_InitialOnboardingState(
+    _$InitialOnboardingStateImpl(
       visitedOnboarding: json['visitedOnboarding'] as bool?,
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$_InitialOnboardingStateToJson(
-        _$_InitialOnboardingState instance) =>
+Map<String, dynamic> _$$InitialOnboardingStateImplToJson(
+        _$InitialOnboardingStateImpl instance) =>
     <String, dynamic>{
       'visitedOnboarding': instance.visitedOnboarding,
       'runtimeType': instance.$type,
     };
 
-_$_FetchingOnboardingState _$$_FetchingOnboardingStateFromJson(
+_$FetchingOnboardingStateImpl _$$FetchingOnboardingStateImplFromJson(
         Map<String, dynamic> json) =>
-    _$_FetchingOnboardingState(
+    _$FetchingOnboardingStateImpl(
       visitedOnboarding: json['visitedOnboarding'] as bool?,
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$_FetchingOnboardingStateToJson(
-        _$_FetchingOnboardingState instance) =>
+Map<String, dynamic> _$$FetchingOnboardingStateImplToJson(
+        _$FetchingOnboardingStateImpl instance) =>
     <String, dynamic>{
       'visitedOnboarding': instance.visitedOnboarding,
       'runtimeType': instance.$type,
     };
 
-_$_LoadedOnboardingState _$$_LoadedOnboardingStateFromJson(
+_$LoadedOnboardingStateImpl _$$LoadedOnboardingStateImplFromJson(
         Map<String, dynamic> json) =>
-    _$_LoadedOnboardingState(
+    _$LoadedOnboardingStateImpl(
       visitedOnboarding: json['visitedOnboarding'] as bool?,
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$_LoadedOnboardingStateToJson(
-        _$_LoadedOnboardingState instance) =>
+Map<String, dynamic> _$$LoadedOnboardingStateImplToJson(
+        _$LoadedOnboardingStateImpl instance) =>
     <String, dynamic>{
       'visitedOnboarding': instance.visitedOnboarding,
       'runtimeType': instance.$type,
     };
 
-_$_ErrorOnboardingState _$$_ErrorOnboardingStateFromJson(
+_$ErrorOnboardingStateImpl _$$ErrorOnboardingStateImplFromJson(
         Map<String, dynamic> json) =>
-    _$_ErrorOnboardingState(
+    _$ErrorOnboardingStateImpl(
       visitedOnboarding: json['visitedOnboarding'] as bool?,
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$_ErrorOnboardingStateToJson(
-        _$_ErrorOnboardingState instance) =>
+Map<String, dynamic> _$$ErrorOnboardingStateImplToJson(
+        _$ErrorOnboardingStateImpl instance) =>
     <String, dynamic>{
       'visitedOnboarding': instance.visitedOnboarding,
       'runtimeType': instance.$type,

@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:uptodo/core/platform/platform.dart';
+import 'package:uptodo/core/presentation/widgets/buttons/app_button.dart';
 import 'package:uptodo/features/onboarding/presentation/state/onboarding_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -46,7 +47,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
       image: AppImages.onboard_2,
       title: 'Create daily routine',
       description:
-          'In Uptodo  you can create your\npersonalized routine to stay productive',
+          'In Uptodo you can create your\npersonalized routine to stay productive',
     ),
     OnboardingPageData(
       image: AppImages.onboard_3,
@@ -119,25 +120,45 @@ class _OnboardingPageState extends State<OnboardingPage> {
                     style: AppStyles.textStyleBodyLarge(),
                     textAlign: TextAlign.center,
                   ),
-
-                  // const Spacer(),
-                  // AppButton(
-                  //   onTap: () {
-                  //     if (isLastPage) {
-                  //       context
-                  //           .read<OnboardingCubit>()
-                  //           .persistOnboardingStatus();
-
-                  //       context.goNamed('auth');
-                  //     } else {
-                  //       liquidController.animateToPage(page: index + 1);
-                  //     }
-                  //   },
-                  //   width: double.infinity,
-                  //   label: isLastPage ? 'Get Started' : 'Next',
-                  //   // fontColor: Colors.white,
-                  // ),
-                  // const Spacer(),
+                  const Spacer(),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      TextButton(
+                        onPressed: () {
+                          if (page != 0) {
+                            controller.animateToPage(
+                              page - 1,
+                              duration: const Duration(milliseconds: 500),
+                              curve: Curves.easeIn,
+                            );
+                          }
+                          // context.goNamed('auth');
+                        },
+                        child: AutoSizeText(
+                          'BACK',
+                          style: AppStyles.textStyleTextButton().copyWith(
+                            color: AppColors.white.withOpacity(0.44),
+                          ),
+                        ),
+                      ),
+                      Flexible(
+                        child: AppButton(
+                          onTap: () {
+                            if (page < 2) {
+                              controller.animateToPage(
+                                page + 1,
+                                duration: const Duration(milliseconds: 500),
+                                curve: Curves.easeIn,
+                              );
+                            }
+                          },
+                          label: index == 2 ? 'GET STARTED' : 'NEXT',
+                          width: index == 2 ? 35.w : 30.w,
+                        ),
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ),

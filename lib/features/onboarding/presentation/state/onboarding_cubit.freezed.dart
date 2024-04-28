@@ -12,7 +12,7 @@ part of 'onboarding_cubit.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 OnboardingState _$OnboardingStateFromJson(Map<String, dynamic> json) {
   switch (json['runtimeType']) {
@@ -124,22 +124,24 @@ class _$OnboardingStateCopyWithImpl<$Res, $Val extends OnboardingState>
 }
 
 /// @nodoc
-abstract class _$$_InitialOnboardingStateCopyWith<$Res>
+abstract class _$$InitialOnboardingStateImplCopyWith<$Res>
     implements $OnboardingStateCopyWith<$Res> {
-  factory _$$_InitialOnboardingStateCopyWith(_$_InitialOnboardingState value,
-          $Res Function(_$_InitialOnboardingState) then) =
-      __$$_InitialOnboardingStateCopyWithImpl<$Res>;
+  factory _$$InitialOnboardingStateImplCopyWith(
+          _$InitialOnboardingStateImpl value,
+          $Res Function(_$InitialOnboardingStateImpl) then) =
+      __$$InitialOnboardingStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({bool? visitedOnboarding});
 }
 
 /// @nodoc
-class __$$_InitialOnboardingStateCopyWithImpl<$Res>
-    extends _$OnboardingStateCopyWithImpl<$Res, _$_InitialOnboardingState>
-    implements _$$_InitialOnboardingStateCopyWith<$Res> {
-  __$$_InitialOnboardingStateCopyWithImpl(_$_InitialOnboardingState _value,
-      $Res Function(_$_InitialOnboardingState) _then)
+class __$$InitialOnboardingStateImplCopyWithImpl<$Res>
+    extends _$OnboardingStateCopyWithImpl<$Res, _$InitialOnboardingStateImpl>
+    implements _$$InitialOnboardingStateImplCopyWith<$Res> {
+  __$$InitialOnboardingStateImplCopyWithImpl(
+      _$InitialOnboardingStateImpl _value,
+      $Res Function(_$InitialOnboardingStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -147,7 +149,7 @@ class __$$_InitialOnboardingStateCopyWithImpl<$Res>
   $Res call({
     Object? visitedOnboarding = freezed,
   }) {
-    return _then(_$_InitialOnboardingState(
+    return _then(_$InitialOnboardingStateImpl(
       visitedOnboarding: freezed == visitedOnboarding
           ? _value.visitedOnboarding
           : visitedOnboarding // ignore: cast_nullable_to_non_nullable
@@ -158,12 +160,13 @@ class __$$_InitialOnboardingStateCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_InitialOnboardingState implements _InitialOnboardingState {
-  const _$_InitialOnboardingState({this.visitedOnboarding, final String? $type})
+class _$InitialOnboardingStateImpl implements _InitialOnboardingState {
+  const _$InitialOnboardingStateImpl(
+      {this.visitedOnboarding, final String? $type})
       : $type = $type ?? 'initial';
 
-  factory _$_InitialOnboardingState.fromJson(Map<String, dynamic> json) =>
-      _$$_InitialOnboardingStateFromJson(json);
+  factory _$InitialOnboardingStateImpl.fromJson(Map<String, dynamic> json) =>
+      _$$InitialOnboardingStateImplFromJson(json);
 
   @override
   final bool? visitedOnboarding;
@@ -177,10 +180,10 @@ class _$_InitialOnboardingState implements _InitialOnboardingState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_InitialOnboardingState &&
+            other is _$InitialOnboardingStateImpl &&
             (identical(other.visitedOnboarding, visitedOnboarding) ||
                 other.visitedOnboarding == visitedOnboarding));
   }
@@ -192,9 +195,9 @@ class _$_InitialOnboardingState implements _InitialOnboardingState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_InitialOnboardingStateCopyWith<_$_InitialOnboardingState> get copyWith =>
-      __$$_InitialOnboardingStateCopyWithImpl<_$_InitialOnboardingState>(
-          this, _$identity);
+  _$$InitialOnboardingStateImplCopyWith<_$InitialOnboardingStateImpl>
+      get copyWith => __$$InitialOnboardingStateImplCopyWithImpl<
+          _$InitialOnboardingStateImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -272,7 +275,7 @@ class _$_InitialOnboardingState implements _InitialOnboardingState {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_InitialOnboardingStateToJson(
+    return _$$InitialOnboardingStateImplToJson(
       this,
     );
   }
@@ -280,36 +283,38 @@ class _$_InitialOnboardingState implements _InitialOnboardingState {
 
 abstract class _InitialOnboardingState implements OnboardingState {
   const factory _InitialOnboardingState({final bool? visitedOnboarding}) =
-      _$_InitialOnboardingState;
+      _$InitialOnboardingStateImpl;
 
   factory _InitialOnboardingState.fromJson(Map<String, dynamic> json) =
-      _$_InitialOnboardingState.fromJson;
+      _$InitialOnboardingStateImpl.fromJson;
 
   @override
   bool? get visitedOnboarding;
   @override
   @JsonKey(ignore: true)
-  _$$_InitialOnboardingStateCopyWith<_$_InitialOnboardingState> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$InitialOnboardingStateImplCopyWith<_$InitialOnboardingStateImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_FetchingOnboardingStateCopyWith<$Res>
+abstract class _$$FetchingOnboardingStateImplCopyWith<$Res>
     implements $OnboardingStateCopyWith<$Res> {
-  factory _$$_FetchingOnboardingStateCopyWith(_$_FetchingOnboardingState value,
-          $Res Function(_$_FetchingOnboardingState) then) =
-      __$$_FetchingOnboardingStateCopyWithImpl<$Res>;
+  factory _$$FetchingOnboardingStateImplCopyWith(
+          _$FetchingOnboardingStateImpl value,
+          $Res Function(_$FetchingOnboardingStateImpl) then) =
+      __$$FetchingOnboardingStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({bool? visitedOnboarding});
 }
 
 /// @nodoc
-class __$$_FetchingOnboardingStateCopyWithImpl<$Res>
-    extends _$OnboardingStateCopyWithImpl<$Res, _$_FetchingOnboardingState>
-    implements _$$_FetchingOnboardingStateCopyWith<$Res> {
-  __$$_FetchingOnboardingStateCopyWithImpl(_$_FetchingOnboardingState _value,
-      $Res Function(_$_FetchingOnboardingState) _then)
+class __$$FetchingOnboardingStateImplCopyWithImpl<$Res>
+    extends _$OnboardingStateCopyWithImpl<$Res, _$FetchingOnboardingStateImpl>
+    implements _$$FetchingOnboardingStateImplCopyWith<$Res> {
+  __$$FetchingOnboardingStateImplCopyWithImpl(
+      _$FetchingOnboardingStateImpl _value,
+      $Res Function(_$FetchingOnboardingStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -317,7 +322,7 @@ class __$$_FetchingOnboardingStateCopyWithImpl<$Res>
   $Res call({
     Object? visitedOnboarding = freezed,
   }) {
-    return _then(_$_FetchingOnboardingState(
+    return _then(_$FetchingOnboardingStateImpl(
       visitedOnboarding: freezed == visitedOnboarding
           ? _value.visitedOnboarding
           : visitedOnboarding // ignore: cast_nullable_to_non_nullable
@@ -328,13 +333,13 @@ class __$$_FetchingOnboardingStateCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_FetchingOnboardingState implements _FetchingOnboardingState {
-  const _$_FetchingOnboardingState(
+class _$FetchingOnboardingStateImpl implements _FetchingOnboardingState {
+  const _$FetchingOnboardingStateImpl(
       {this.visitedOnboarding, final String? $type})
       : $type = $type ?? 'fetching';
 
-  factory _$_FetchingOnboardingState.fromJson(Map<String, dynamic> json) =>
-      _$$_FetchingOnboardingStateFromJson(json);
+  factory _$FetchingOnboardingStateImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FetchingOnboardingStateImplFromJson(json);
 
   @override
   final bool? visitedOnboarding;
@@ -348,10 +353,10 @@ class _$_FetchingOnboardingState implements _FetchingOnboardingState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FetchingOnboardingState &&
+            other is _$FetchingOnboardingStateImpl &&
             (identical(other.visitedOnboarding, visitedOnboarding) ||
                 other.visitedOnboarding == visitedOnboarding));
   }
@@ -363,10 +368,9 @@ class _$_FetchingOnboardingState implements _FetchingOnboardingState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FetchingOnboardingStateCopyWith<_$_FetchingOnboardingState>
-      get copyWith =>
-          __$$_FetchingOnboardingStateCopyWithImpl<_$_FetchingOnboardingState>(
-              this, _$identity);
+  _$$FetchingOnboardingStateImplCopyWith<_$FetchingOnboardingStateImpl>
+      get copyWith => __$$FetchingOnboardingStateImplCopyWithImpl<
+          _$FetchingOnboardingStateImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -444,7 +448,7 @@ class _$_FetchingOnboardingState implements _FetchingOnboardingState {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_FetchingOnboardingStateToJson(
+    return _$$FetchingOnboardingStateImplToJson(
       this,
     );
   }
@@ -452,36 +456,37 @@ class _$_FetchingOnboardingState implements _FetchingOnboardingState {
 
 abstract class _FetchingOnboardingState implements OnboardingState {
   const factory _FetchingOnboardingState({final bool? visitedOnboarding}) =
-      _$_FetchingOnboardingState;
+      _$FetchingOnboardingStateImpl;
 
   factory _FetchingOnboardingState.fromJson(Map<String, dynamic> json) =
-      _$_FetchingOnboardingState.fromJson;
+      _$FetchingOnboardingStateImpl.fromJson;
 
   @override
   bool? get visitedOnboarding;
   @override
   @JsonKey(ignore: true)
-  _$$_FetchingOnboardingStateCopyWith<_$_FetchingOnboardingState>
+  _$$FetchingOnboardingStateImplCopyWith<_$FetchingOnboardingStateImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_LoadedOnboardingStateCopyWith<$Res>
+abstract class _$$LoadedOnboardingStateImplCopyWith<$Res>
     implements $OnboardingStateCopyWith<$Res> {
-  factory _$$_LoadedOnboardingStateCopyWith(_$_LoadedOnboardingState value,
-          $Res Function(_$_LoadedOnboardingState) then) =
-      __$$_LoadedOnboardingStateCopyWithImpl<$Res>;
+  factory _$$LoadedOnboardingStateImplCopyWith(
+          _$LoadedOnboardingStateImpl value,
+          $Res Function(_$LoadedOnboardingStateImpl) then) =
+      __$$LoadedOnboardingStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({bool? visitedOnboarding});
 }
 
 /// @nodoc
-class __$$_LoadedOnboardingStateCopyWithImpl<$Res>
-    extends _$OnboardingStateCopyWithImpl<$Res, _$_LoadedOnboardingState>
-    implements _$$_LoadedOnboardingStateCopyWith<$Res> {
-  __$$_LoadedOnboardingStateCopyWithImpl(_$_LoadedOnboardingState _value,
-      $Res Function(_$_LoadedOnboardingState) _then)
+class __$$LoadedOnboardingStateImplCopyWithImpl<$Res>
+    extends _$OnboardingStateCopyWithImpl<$Res, _$LoadedOnboardingStateImpl>
+    implements _$$LoadedOnboardingStateImplCopyWith<$Res> {
+  __$$LoadedOnboardingStateImplCopyWithImpl(_$LoadedOnboardingStateImpl _value,
+      $Res Function(_$LoadedOnboardingStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -489,7 +494,7 @@ class __$$_LoadedOnboardingStateCopyWithImpl<$Res>
   $Res call({
     Object? visitedOnboarding = freezed,
   }) {
-    return _then(_$_LoadedOnboardingState(
+    return _then(_$LoadedOnboardingStateImpl(
       visitedOnboarding: freezed == visitedOnboarding
           ? _value.visitedOnboarding
           : visitedOnboarding // ignore: cast_nullable_to_non_nullable
@@ -500,12 +505,13 @@ class __$$_LoadedOnboardingStateCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_LoadedOnboardingState implements _LoadedOnboardingState {
-  const _$_LoadedOnboardingState({this.visitedOnboarding, final String? $type})
+class _$LoadedOnboardingStateImpl implements _LoadedOnboardingState {
+  const _$LoadedOnboardingStateImpl(
+      {this.visitedOnboarding, final String? $type})
       : $type = $type ?? 'loaded';
 
-  factory _$_LoadedOnboardingState.fromJson(Map<String, dynamic> json) =>
-      _$$_LoadedOnboardingStateFromJson(json);
+  factory _$LoadedOnboardingStateImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LoadedOnboardingStateImplFromJson(json);
 
   @override
   final bool? visitedOnboarding;
@@ -519,10 +525,10 @@ class _$_LoadedOnboardingState implements _LoadedOnboardingState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LoadedOnboardingState &&
+            other is _$LoadedOnboardingStateImpl &&
             (identical(other.visitedOnboarding, visitedOnboarding) ||
                 other.visitedOnboarding == visitedOnboarding));
   }
@@ -534,9 +540,9 @@ class _$_LoadedOnboardingState implements _LoadedOnboardingState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LoadedOnboardingStateCopyWith<_$_LoadedOnboardingState> get copyWith =>
-      __$$_LoadedOnboardingStateCopyWithImpl<_$_LoadedOnboardingState>(
-          this, _$identity);
+  _$$LoadedOnboardingStateImplCopyWith<_$LoadedOnboardingStateImpl>
+      get copyWith => __$$LoadedOnboardingStateImplCopyWithImpl<
+          _$LoadedOnboardingStateImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -614,7 +620,7 @@ class _$_LoadedOnboardingState implements _LoadedOnboardingState {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LoadedOnboardingStateToJson(
+    return _$$LoadedOnboardingStateImplToJson(
       this,
     );
   }
@@ -622,36 +628,36 @@ class _$_LoadedOnboardingState implements _LoadedOnboardingState {
 
 abstract class _LoadedOnboardingState implements OnboardingState {
   const factory _LoadedOnboardingState({final bool? visitedOnboarding}) =
-      _$_LoadedOnboardingState;
+      _$LoadedOnboardingStateImpl;
 
   factory _LoadedOnboardingState.fromJson(Map<String, dynamic> json) =
-      _$_LoadedOnboardingState.fromJson;
+      _$LoadedOnboardingStateImpl.fromJson;
 
   @override
   bool? get visitedOnboarding;
   @override
   @JsonKey(ignore: true)
-  _$$_LoadedOnboardingStateCopyWith<_$_LoadedOnboardingState> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$LoadedOnboardingStateImplCopyWith<_$LoadedOnboardingStateImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_ErrorOnboardingStateCopyWith<$Res>
+abstract class _$$ErrorOnboardingStateImplCopyWith<$Res>
     implements $OnboardingStateCopyWith<$Res> {
-  factory _$$_ErrorOnboardingStateCopyWith(_$_ErrorOnboardingState value,
-          $Res Function(_$_ErrorOnboardingState) then) =
-      __$$_ErrorOnboardingStateCopyWithImpl<$Res>;
+  factory _$$ErrorOnboardingStateImplCopyWith(_$ErrorOnboardingStateImpl value,
+          $Res Function(_$ErrorOnboardingStateImpl) then) =
+      __$$ErrorOnboardingStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({bool? visitedOnboarding});
 }
 
 /// @nodoc
-class __$$_ErrorOnboardingStateCopyWithImpl<$Res>
-    extends _$OnboardingStateCopyWithImpl<$Res, _$_ErrorOnboardingState>
-    implements _$$_ErrorOnboardingStateCopyWith<$Res> {
-  __$$_ErrorOnboardingStateCopyWithImpl(_$_ErrorOnboardingState _value,
-      $Res Function(_$_ErrorOnboardingState) _then)
+class __$$ErrorOnboardingStateImplCopyWithImpl<$Res>
+    extends _$OnboardingStateCopyWithImpl<$Res, _$ErrorOnboardingStateImpl>
+    implements _$$ErrorOnboardingStateImplCopyWith<$Res> {
+  __$$ErrorOnboardingStateImplCopyWithImpl(_$ErrorOnboardingStateImpl _value,
+      $Res Function(_$ErrorOnboardingStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -659,7 +665,7 @@ class __$$_ErrorOnboardingStateCopyWithImpl<$Res>
   $Res call({
     Object? visitedOnboarding = freezed,
   }) {
-    return _then(_$_ErrorOnboardingState(
+    return _then(_$ErrorOnboardingStateImpl(
       visitedOnboarding: freezed == visitedOnboarding
           ? _value.visitedOnboarding
           : visitedOnboarding // ignore: cast_nullable_to_non_nullable
@@ -670,12 +676,13 @@ class __$$_ErrorOnboardingStateCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ErrorOnboardingState implements _ErrorOnboardingState {
-  const _$_ErrorOnboardingState({this.visitedOnboarding, final String? $type})
+class _$ErrorOnboardingStateImpl implements _ErrorOnboardingState {
+  const _$ErrorOnboardingStateImpl(
+      {this.visitedOnboarding, final String? $type})
       : $type = $type ?? 'error';
 
-  factory _$_ErrorOnboardingState.fromJson(Map<String, dynamic> json) =>
-      _$$_ErrorOnboardingStateFromJson(json);
+  factory _$ErrorOnboardingStateImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ErrorOnboardingStateImplFromJson(json);
 
   @override
   final bool? visitedOnboarding;
@@ -689,10 +696,10 @@ class _$_ErrorOnboardingState implements _ErrorOnboardingState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ErrorOnboardingState &&
+            other is _$ErrorOnboardingStateImpl &&
             (identical(other.visitedOnboarding, visitedOnboarding) ||
                 other.visitedOnboarding == visitedOnboarding));
   }
@@ -704,9 +711,10 @@ class _$_ErrorOnboardingState implements _ErrorOnboardingState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ErrorOnboardingStateCopyWith<_$_ErrorOnboardingState> get copyWith =>
-      __$$_ErrorOnboardingStateCopyWithImpl<_$_ErrorOnboardingState>(
-          this, _$identity);
+  _$$ErrorOnboardingStateImplCopyWith<_$ErrorOnboardingStateImpl>
+      get copyWith =>
+          __$$ErrorOnboardingStateImplCopyWithImpl<_$ErrorOnboardingStateImpl>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -784,7 +792,7 @@ class _$_ErrorOnboardingState implements _ErrorOnboardingState {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ErrorOnboardingStateToJson(
+    return _$$ErrorOnboardingStateImplToJson(
       this,
     );
   }
@@ -792,15 +800,15 @@ class _$_ErrorOnboardingState implements _ErrorOnboardingState {
 
 abstract class _ErrorOnboardingState implements OnboardingState {
   const factory _ErrorOnboardingState({final bool? visitedOnboarding}) =
-      _$_ErrorOnboardingState;
+      _$ErrorOnboardingStateImpl;
 
   factory _ErrorOnboardingState.fromJson(Map<String, dynamic> json) =
-      _$_ErrorOnboardingState.fromJson;
+      _$ErrorOnboardingStateImpl.fromJson;
 
   @override
   bool? get visitedOnboarding;
   @override
   @JsonKey(ignore: true)
-  _$$_ErrorOnboardingStateCopyWith<_$_ErrorOnboardingState> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$ErrorOnboardingStateImplCopyWith<_$ErrorOnboardingStateImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
