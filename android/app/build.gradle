@@ -21,6 +21,10 @@ if (flutterVersionName == null) {
     flutterVersionName = '1.0'
 }
 
+static def getDate() {
+    new Date().format('yyyy.MM.dd.HH.mm')
+}
+
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
@@ -35,6 +39,11 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
+    lintOptions {
+        disable 'InvalidPackage'
+        checkReleaseBuilds false           
+    }
+
     kotlinOptions {
         jvmTarget = '1.8'
     }
@@ -44,21 +53,65 @@ android {
     }
 
     defaultConfig {
-        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
+        
         applicationId "com.ray.uptodo"
-        // You can update the following values to match your application needs.
-        // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
         minSdkVersion flutter.minSdkVersion
-        targetSdkVersion flutter.targetSdkVersion
+        targetSdkVersion 33
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+    }
+
+    signingConfigs {
+
+        debug {
+            keyAlias "androiddebugkey"
+            keyPassword "android"
+            storeFile file("../uptodo_debug.keystore")
+            storePassword "android"
+        }
+
+        // TODO: Add signinging configs for the release build.
+        release {
+
+        }
     }
 
     buildTypes {
-        release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
+
+        debug {
             signingConfig signingConfigs.debug
+            minifyEnabled false
+            shrinkResources false
+        }
+
+
+        release {
+            // TODO: Change config for the release build.
+            signingConfig signingConfigs.debug 
+            minifyEnabled true
+            shrinkResources true
+        }
+    }
+
+    flavorDimensions "flavors"
+
+    productFlavors {
+        staging {
+            dimension "flavors"
+            applicationIdSuffix ".dev"
+            versionNameSuffix "-dev-${getDate()}"
+            resValue "string", "app_name", "UpTodo Dev"
+            resValue "string", "is_debug", "true"
+            
+        }
+        
+        production {
+            dimension "flavors"
+            resValue "string", "app_name", "UpTodo"
+            resValue "string", "is_debug", "false"
+            
         }
     }
 }
@@ -69,4 +122,9 @@ flutter {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    testImplementation 'junit:junit:4.13.1'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.5.0'
+    implementation 'androidx.multidex:multidex:2.0.1'
 }
