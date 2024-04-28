@@ -26,10 +26,10 @@ StatelessWidget getStage() {
 class _StageApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) => MultiBlocProvider(
-        providers: const [],
+        providers: providers,
         child: AnnotatedRegion<SystemUiOverlayStyle>(
           value: const SystemUiOverlayStyle(
-            statusBarIconBrightness: Brightness.light, //Android
+            statusBarIconBrightness: Brightness.dark, //Android
             statusBarBrightness: Brightness.dark, //iOS
           ),
           child: Sizer(

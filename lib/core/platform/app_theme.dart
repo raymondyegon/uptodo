@@ -25,8 +25,8 @@ class AppTheme {
   static ThemeData themeData() => ThemeData(
         useMaterial3: true,
         visualDensity: VisualDensity.adaptivePlatformDensity,
-        scaffoldBackgroundColor: AppColors.white,
-        brightness: Brightness.light,
+        scaffoldBackgroundColor: AppColors.black,
+        // brightness: Brightness.dark,
         primaryColor: AppColors.primary,
         primaryColorLight: AppColors.primary,
         primaryColorDark: AppColors.primary,

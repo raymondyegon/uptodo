@@ -19,14 +19,19 @@ class OnboardingPage extends StatefulWidget {
 class _OnboardingPageState extends State<OnboardingPage> {
   int page = 0;
 
+  late PageController controller;
+
   @override
   void initState() {
     super.initState();
+
+    controller = PageController();
   }
 
   pageChangeCallback(int lpage) {
     setState(() {
       page = lpage;
+      // controller. = page;
     });
   }
 
@@ -35,34 +40,40 @@ class _OnboardingPageState extends State<OnboardingPage> {
       image: AppImages.onboard_1,
       title: 'Manage your tasks',
       description:
-          'You can easily manage all of your daily tasks in DoMe for free',
+          'You can easily manage all of your daily\ntasks in DoMe for free',
     ),
     OnboardingPageData(
       image: AppImages.onboard_2,
       title: 'Create daily routine',
       description:
-          'In Uptodo  you can create your personalized routine to stay productive',
+          'In Uptodo  you can create your\npersonalized routine to stay productive',
     ),
     OnboardingPageData(
       image: AppImages.onboard_3,
       title: 'Organize your tasks',
       description:
-          'You can organize your daily tasks by adding your tasks into separate categories',
+          'You can organize your daily tasks by\nadding your tasks into separate categories',
     ),
   ];
 
   @override
   Widget build(BuildContext context) {
-    final _sc = SizeConfig(context: context);
+    final sc = SizeConfig(context: context);
 
     return PageView.builder(
       itemCount: pages.length,
       onPageChanged: pageChangeCallback,
+      controller: controller,
       itemBuilder: (context, index) {
         final data = pages[index];
 
         return Scaffold(
-          appBar: AppBar(toolbarHeight: 0, elevation: 0),
+          appBar: AppBar(
+            toolbarHeight: 0,
+            elevation: 0,
+            backgroundColor: AppColors.black,
+          ),
+          extendBodyBehindAppBar: true,
           body: Container(
             color: AppColors.black,
             width: double.infinity,
@@ -78,7 +89,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                             .read<OnboardingCubit>()
                             .persistOnboardingStatus();
 
-                        context.goNamed('auth');
+                        // context.goNamed('auth');
                       },
                       child: AutoSizeText(
                         'Skip',
@@ -88,31 +99,27 @@ class _OnboardingPageState extends State<OnboardingPage> {
                   ),
                   SvgPicture.asset(
                     data.image,
-                    height: 37.h,
+                    height: 45.h,
                   ),
-                  _sc.spacer(),
+                  SizedBox(height: 5.h),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: List<Widget>.generate(pages.length, _buildDot),
                   ),
-                  SizedBox(height: 5.h),
+                  SizedBox(height: 3.h),
                   AutoSizeText(
                     data.title,
                     style: AppStyles.textStyleTitle(),
                     textAlign: TextAlign.center,
                   ),
-                  _sc.spacer(),
-                  _sc.spacer(),
+                  sc.spacer(),
+                  sc.spacer(),
                   AutoSizeText(
                     data.description,
-                    style: AppStyles.textStyleBodyMedium(),
+                    style: AppStyles.textStyleBodyLarge(),
                     textAlign: TextAlign.center,
                   ),
-                  // const Spacer(),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: List<Widget>.generate(pages.length, _buildDot),
-                  ),
+
                   // const Spacer(),
                   // AppButton(
                   //   onTap: () {
@@ -138,91 +145,6 @@ class _OnboardingPageState extends State<OnboardingPage> {
         );
       },
     );
-
-    // LiquidSwipe.builder(
-    //   itemCount: pages.length,
-    //   initialPage: page,
-    //   liquidController: liquidController,
-    //   waveType: WaveType.liquidReveal,
-    //   enableLoop: true,
-    //   onPageChangeCallback: pageChangeCallback,
-    //   itemBuilder: (_, int index) {
-    //     final item = pages[index];
-
-    //     final isLastPage = pages.length - 1 == index;
-
-    //     return Scaffold(
-    //       appBar: AppBar(toolbarHeight: 0, elevation: 0),
-    //       body: Container(
-    //         color: Colors.white,
-    //         width: double.infinity,
-    //         padding: EdgeInsets.symmetric(horizontal: 4.w),
-    //         child: SafeArea(
-    //           child: Column(
-    //             children: [
-    //               Align(
-    //                 alignment: Alignment.topRight,
-    //                 child: TextButton(
-    //                   onPressed: () {
-    //                     context
-    //                         .read<OnboardingCubit>()
-    //                         .persistOnboardingStatus();
-
-    //                     context.goNamed('auth');
-    //                   },
-    //                   child: AutoSizeText(
-    //                     'Skip',
-    //                     style: AppStyles.textStyleTextButton(),
-    //                   ),
-    //                 ),
-    //               ),
-    //               Image.asset(
-    //                 item.image,
-    //                 height: 37.h,
-    //               ),
-    //               SizedBox(height: 5.h),
-    //               AutoSizeText(
-    //                 item.title,
-    //                 style: AppStyles.textStyleTitle(),
-    //                 textAlign: TextAlign.center,
-    //               ),
-    //               _sc.spacer(),
-    //               _sc.spacer(),
-    //               AutoSizeText(
-    //                 item.description,
-    //                 style: AppStyles.textStyleBodyMedium(),
-    //                 textAlign: TextAlign.center,
-    //               ),
-    //               const Spacer(),
-    //               Row(
-    //                 mainAxisAlignment: MainAxisAlignment.center,
-    //                 children: List<Widget>.generate(pages.length, _buildDot),
-    //               ),
-    //               const Spacer(),
-    //               AppButton(
-    //                 onTap: () {
-    //                   if (isLastPage) {
-    //                     context
-    //                         .read<OnboardingCubit>()
-    //                         .persistOnboardingStatus();
-
-    //                     context.goNamed('auth');
-    //                   } else {
-    //                     liquidController.animateToPage(page: index + 1);
-    //                   }
-    //                 },
-    //                 width: double.infinity,
-    //                 label: isLastPage ? 'Get Started' : 'Next',
-    //                 // fontColor: Colors.white,
-    //               ),
-    //               const Spacer(),
-    //             ],
-    //           ),
-    //         ),
-    //       ),
-    //     );
-    //   },
-    // );
   }
 
   Widget _buildDot(int index) {
