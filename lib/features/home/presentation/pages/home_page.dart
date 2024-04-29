@@ -2,6 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:go_router/go_router.dart';
 import 'package:sizer/sizer.dart';
 import 'package:uptodo/core/platform/platform.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
@@ -113,7 +114,9 @@ class _HomePageState extends State<HomePage> {
                       SizedBox(height: sc.heightScaledSize(10)),
                   builderDelegate: PagedChildBuilderDelegate<TodoModel>(
                     itemBuilder: (_, item, __) => ListTile(
-                      onTap: () {},
+                      onTap: () {
+                        context.goNamed('todo-detail', extra: item);
+                      },
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8),
                       ),

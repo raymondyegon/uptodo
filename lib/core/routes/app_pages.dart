@@ -12,6 +12,7 @@ class AppPages {
 
   // Home page
   static const home = '/home';
+  static const todoDetail = 'todo-detail';
 }
 
 // Builder route widgets for different routes
@@ -31,4 +32,8 @@ class AppWidgets {
   // HomePage Widget
   static Widget homePageWidget(BuildContext context, GoRouterState state) =>
       const HomePage();
+
+  // To-do Details Screeen
+  static Widget todoDetailsWidget(BuildContext context, GoRouterState state) =>
+      TodoDetailPage(todo: state.extra as TodoModel);
 }

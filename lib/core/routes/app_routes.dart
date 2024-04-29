@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:uptodo/core/utilities/utilities.dart';
 import 'package:uptodo/features/authentication/presentation/pages/login_page.dart';
+import 'package:uptodo/features/home/data/models/todo_model.dart';
 import 'package:uptodo/features/home/presentation/pages/home_page.dart';
+import 'package:uptodo/features/home/presentation/pages/todo_detail_page.dart';
 import 'package:uptodo/features/onboarding/presentation/pages/landing_page.dart';
 import 'package:uptodo/features/onboarding/presentation/pages/onboarding_page.dart';
 
@@ -34,6 +36,13 @@ class AppRoutes {
         path: AppPages.home,
         name: 'home-page',
         builder: AppWidgets.homePageWidget,
+        routes: [
+          GoRoute(
+            path: AppPages.todoDetail,
+            name: 'todo-detail',
+            builder: AppWidgets.todoDetailsWidget,
+          ),
+        ],
       ),
     ],
     errorBuilder: (context, state) {
