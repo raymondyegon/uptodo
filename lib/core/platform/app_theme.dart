@@ -38,7 +38,7 @@ class AppTheme {
         disabledColor: AppColors.lightGray,
         dialogBackgroundColor: AppColors.black2,
         indicatorColor: AppColors.primary,
-        hintColor: AppColors.gray,
+        hintColor: AppColors.gray2,
         textTheme: _textTheme,
         colorScheme: const ColorScheme.light().copyWith(
           primary: AppColors.primary,
@@ -52,12 +52,12 @@ class AppTheme {
             fontStyle: FontStyle.normal,
           ),
           helperStyle: TextStyle(
-            color: AppColors.gray,
+            color: AppColors.gray2,
             fontSize: 10.0.sp,
             fontWeight: FontWeight.w400,
           ),
           hintStyle: TextStyle(
-            color: AppColors.gray,
+            color: AppColors.gray2,
             fontSize: 10.0.sp,
             fontWeight: FontWeight.w400,
             fontStyle: FontStyle.normal,
@@ -92,7 +92,7 @@ class AppTheme {
             fontStyle: FontStyle.normal,
           ),
           filled: true,
-          fillColor: Colors.white38,
+          fillColor: const Color.fromARGB(255, 29, 29, 29),
           errorBorder: OutlineInputBorder(
             borderSide: const BorderSide(
               color: AppColors.error,

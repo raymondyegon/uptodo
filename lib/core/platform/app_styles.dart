@@ -47,7 +47,7 @@ class AppStyles {
 
   static TextStyle textStyleHint() => TextStyle(
         fontSize: 9.sp,
-        color: AppColors.white,
+        color: AppColors.gray2,
         fontWeight: FontWeight.normal,
       );
 }

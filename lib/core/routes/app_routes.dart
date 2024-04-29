@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:uptodo/core/utilities/utilities.dart';
 import 'package:uptodo/features/authentication/presentation/pages/login_page.dart';
+import 'package:uptodo/features/home/presentation/pages/home_page.dart';
 import 'package:uptodo/features/onboarding/presentation/pages/landing_page.dart';
 import 'package:uptodo/features/onboarding/presentation/pages/onboarding_page.dart';
 
@@ -29,33 +30,11 @@ class AppRoutes {
         name: 'auth',
         builder: AppWidgets.loginWidget,
       ),
-      // GoRoute(
-      //   path: AppPages.home,
-      //   name: 'home-page',
-      //   builder: AppWidgets.homeWidget,
-      //   routes: [
-      //     GoRoute(
-      //       path: AppPages.kitchenDetails,
-      //       name: 'kitchen-details',
-      //       builder: AppWidgets.kitchenDetailsWidget,
-      //     ),
-      //     GoRoute(
-      //       path: AppPages.mealDetails,
-      //       name: 'meal-details',
-      //       builder: AppWidgets.mealDetailsWidget,
-      //     ),
-      //     GoRoute(
-      //       path: AppPages.orderSummary,
-      //       name: 'order-summary',
-      //       builder: AppWidgets.orderSummaryWidget,
-      //     ),
-      //     GoRoute(
-      //       path: AppPages.orderDetails,
-      //       name: 'order-details',
-      //       builder: AppWidgets.orderDetailsWidget,
-      //     ),
-      //   ],
-      // ),
+      GoRoute(
+        path: AppPages.home,
+        name: 'home-page',
+        builder: AppWidgets.homePageWidget,
+      ),
     ],
     errorBuilder: (context, state) {
       logger.e(state.error.toString());

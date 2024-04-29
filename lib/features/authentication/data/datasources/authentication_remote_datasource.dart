@@ -42,7 +42,7 @@ class AuthenticationRemoteDatasourceImpl
 
     logger.i(_result);
 
-    return UserModel.fromJson(_result);
+    return UserModel.fromJson(_result['data']);
   }
 
   @override
@@ -61,7 +61,7 @@ class AuthenticationRemoteDatasourceImpl
 
     logger.i(_result);
 
-    return UserModel.fromJson(_result);
+    return UserModel.fromJson(_result['data']);
   }
 
   @override
@@ -71,6 +71,7 @@ class AuthenticationRemoteDatasourceImpl
   }) async {
     final _result = await _networkService.postHttp(
       AuthenticationEndpoints.login,
+      tokenRequired: false,
       body: {'username': username, 'password': password},
     );
 
@@ -84,7 +85,7 @@ class AuthenticationRemoteDatasourceImpl
 
     logger.i(_result);
 
-    return UserModel.fromJson(_result);
+    return UserModel.fromJson(_result['data']);
   }
 
   @override

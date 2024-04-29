@@ -15,7 +15,7 @@ _$UserModelImpl _$$UserModelImplFromJson(Map<String, dynamic> json) =>
       lastName: json['lastName'] as String,
       gender: json['gender'] as String,
       image: json['image'] as String,
-      token: json['token'] as String,
+      token: json['token'] as String?,
     );
 
 Map<String, dynamic> _$$UserModelImplToJson(_$UserModelImpl instance) =>

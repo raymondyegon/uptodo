@@ -18,9 +18,12 @@ class AuthenticationRepositoryImpl implements AuthenticationRepository {
 
     logger.i(res);
 
+    final cuser = await _localDatasource.getPersonalAccountUser();
+
     if (res != null) {
       await guardedCacheAccess(
-        () => _localDatasource.savePersonalAccountUser(res),
+        () => _localDatasource
+            .savePersonalAccountUser(res.copyWith(token: cuser!.token)),
       );
     }
   }

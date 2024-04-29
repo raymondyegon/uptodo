@@ -27,7 +27,7 @@ mixin _$UserModel {
   String get lastName => throw _privateConstructorUsedError;
   String get gender => throw _privateConstructorUsedError;
   String get image => throw _privateConstructorUsedError;
-  String get token => throw _privateConstructorUsedError;
+  String? get token => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -48,7 +48,7 @@ abstract class $UserModelCopyWith<$Res> {
       String lastName,
       String gender,
       String image,
-      String token});
+      String? token});
 }
 
 /// @nodoc
@@ -71,7 +71,7 @@ class _$UserModelCopyWithImpl<$Res, $Val extends UserModel>
     Object? lastName = null,
     Object? gender = null,
     Object? image = null,
-    Object? token = null,
+    Object? token = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -102,10 +102,10 @@ class _$UserModelCopyWithImpl<$Res, $Val extends UserModel>
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as String,
-      token: null == token
+      token: freezed == token
           ? _value.token
           : token // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ) as $Val);
   }
 }
@@ -126,7 +126,7 @@ abstract class _$$UserModelImplCopyWith<$Res>
       String lastName,
       String gender,
       String image,
-      String token});
+      String? token});
 }
 
 /// @nodoc
@@ -147,7 +147,7 @@ class __$$UserModelImplCopyWithImpl<$Res>
     Object? lastName = null,
     Object? gender = null,
     Object? image = null,
-    Object? token = null,
+    Object? token = freezed,
   }) {
     return _then(_$UserModelImpl(
       id: null == id
@@ -178,10 +178,10 @@ class __$$UserModelImplCopyWithImpl<$Res>
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as String,
-      token: null == token
+      token: freezed == token
           ? _value.token
           : token // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -197,7 +197,7 @@ class _$UserModelImpl implements _UserModel {
       required this.lastName,
       required this.gender,
       required this.image,
-      required this.token});
+      this.token});
 
   factory _$UserModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$UserModelImplFromJson(json);
@@ -217,7 +217,7 @@ class _$UserModelImpl implements _UserModel {
   @override
   final String image;
   @override
-  final String token;
+  final String? token;
 
   @override
   String toString() {
@@ -270,7 +270,7 @@ abstract class _UserModel implements UserModel {
       required final String lastName,
       required final String gender,
       required final String image,
-      required final String token}) = _$UserModelImpl;
+      final String? token}) = _$UserModelImpl;
 
   factory _UserModel.fromJson(Map<String, dynamic> json) =
       _$UserModelImpl.fromJson;
@@ -290,7 +290,7 @@ abstract class _UserModel implements UserModel {
   @override
   String get image;
   @override
-  String get token;
+  String? get token;
   @override
   @JsonKey(ignore: true)
   _$$UserModelImplCopyWith<_$UserModelImpl> get copyWith =>

@@ -44,15 +44,17 @@ Future<T> guardedApiCall<T>(
       e,
       s,
       anyMsg: anyMsg,
-      serverErrorMsg: serverErrorMsg,
-      badRequestMsg: getBadRequestMsg?.call(e) ?? badRequestMsg,
-      notFoundMsg: getNotFoundMsg?.call(e) ?? notFoundMsg,
-      unauthenticatedMsg: getUnauthenticatedMsg?.call(e) ?? unauthenticatedMsg,
-      notPermittedMsg: getNotPermittedMsg?.call(e) ?? notPermittedMsg,
+      serverErrorMsg: serverErrorMsg ?? e.message,
+      badRequestMsg: getBadRequestMsg?.call(e) ?? badRequestMsg ?? e.message,
+      notFoundMsg: getNotFoundMsg?.call(e) ?? notFoundMsg ?? e.message,
+      unauthenticatedMsg:
+          getUnauthenticatedMsg?.call(e) ?? unauthenticatedMsg ?? e.message,
+      notPermittedMsg:
+          getNotPermittedMsg?.call(e) ?? notPermittedMsg ?? e.message,
       validationFailedMsg:
-          getValidationFailedMsg?.call(e) ?? validationFailedMsg,
-      unknownMsg: unknownMsg,
-      failureMsg: getfailureMsg?.call(e) ?? '',
+          getValidationFailedMsg?.call(e) ?? validationFailedMsg ?? e.message,
+      unknownMsg: unknownMsg ?? e.message,
+      failureMsg: getfailureMsg?.call(e) ?? e.message,
     );
   } catch (e, s) {
     // logger.e('${e.toString()}');

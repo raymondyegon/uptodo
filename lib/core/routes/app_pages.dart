@@ -27,4 +27,8 @@ class AppWidgets {
 // Login Widget
   static Widget loginWidget(BuildContext context, GoRouterState state) =>
       const LoginPage();
+
+  // HomePage Widget
+  static Widget homePageWidget(BuildContext context, GoRouterState state) =>
+      const HomePage();
 }

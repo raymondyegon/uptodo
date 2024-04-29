@@ -21,6 +21,9 @@ class AppColors {
   /// for textinput borders
   static const gray = Color(0xff979797);
 
+  /// for textinput borders
+  static const gray2 = Color(0xff535353);
+
   /// #C4C4C4
   static const lightGray = Color(0xffC4C4C4);
 }

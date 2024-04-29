@@ -58,8 +58,13 @@ class PageMargin extends StatelessWidget {
         extendBodyBehindAppBar: extendBodyBehindAppBar ?? false,
         key: scaffoldKey,
         resizeToAvoidBottomInset: resizeToAvoidBottomInset,
-        backgroundColor: backgroundColor ?? AppColors.white,
-        appBar: appBar ?? AppBar(toolbarHeight: 0, elevation: 0),
+        backgroundColor: backgroundColor ?? AppColors.black,
+        appBar: appBar ??
+            AppBar(
+              toolbarHeight: 0,
+              elevation: 0,
+              backgroundColor: AppColors.black,
+            ),
         floatingActionButton: floatingActionButton,
         floatingActionButtonLocation: floatingActionButtonLocation,
         // bottomNavigationBar: showBottomNav

@@ -1,2 +1,2 @@
-const String kStagingApiUrl = '';
-const String kProductionUrl = '';
+const String kStagingApiUrl = 'https://dummyjson.com/';
+const String kProductionUrl = 'https://dummyjson.com/';

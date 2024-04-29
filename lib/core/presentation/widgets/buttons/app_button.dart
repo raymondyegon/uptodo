@@ -60,7 +60,7 @@ class AppButton extends StatelessWidget {
       style: ElevatedButton.styleFrom(
         alignment: Alignment.center,
         backgroundColor: isDisabled
-            ? AppColors.gray
+            ? AppColors.primary.withOpacity(.5)
             : color ?? (!isSecondary ? AppColors.primary : AppColors.white2),
         side: BorderSide.none,
         elevation: elevation,
@@ -70,7 +70,7 @@ class AppButton extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: borderRadius ??
               BorderRadius.all(
-                Radius.circular(_sc.heightScaledSize(8)),
+                Radius.circular(_sc.heightScaledSize(4)),
               ),
           side: BorderSide(
             width: borderWidth,

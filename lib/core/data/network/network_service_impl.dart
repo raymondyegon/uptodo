@@ -1,6 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:uptodo/core/platform/platform.dart';
 import 'package:uptodo/core/utilities/utilities.dart';
+import 'package:uptodo/features/authentication/data/datasources/authentication_local_datasource.dart';
+import 'package:uptodo/features/authentication/data/models/user_model.dart';
+import 'package:uptodo/features/authentication/domain/authentication_module_injector.dart';
 
 // Project imports:
 
@@ -26,16 +29,16 @@ class NetworkServiceImpl implements NetworkService {
           options.headers.addAll({"X-Requested-With": "XMLHttpRequest"});
 
           if (options.extra['token-required'] == true) {
-            // final user = await guardedCacheAccess<UserModel>(
-            //     AuthenticationModuleInjector.resolve<
-            //             AuthenticationLocalDatasource>()
-            //         .getPersonalAccountUser);
+            final user = await guardedCacheAccess<UserModel?>(
+                AuthenticationModuleInjector.resolve<
+                        AuthenticationLocalDatasource>()
+                    .getPersonalAccountUser);
 
-            // final token = user.token;
+            final token = user?.token;
 
-            // options.headers.addAll({
-            //   "Authorization": "Bearer ${token}",
-            // });
+            options.headers.addAll({
+              "Authorization": "Bearer ${token}",
+            });
           }
 
           if (options.extra['token'] != null) {
