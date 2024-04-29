@@ -13,8 +13,8 @@ _$TodoResponseModelImpl _$$TodoResponseModelImplFromJson(
               ?.map((e) => TodoModel.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const [],
-      limit: (json['limit'] as num).toInt(),
-      total: (json['total'] as num).toInt(),
+      limit: ServerTypeTransformer.toIntFromServer(json['limit']),
+      total: ServerTypeTransformer.toIntFromServer(json['total']),
       skip: ServerTypeTransformer.toIntFromServer(json['skip']),
     );
 

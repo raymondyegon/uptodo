@@ -2,6 +2,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:uptodo/features/authentication/domain/authentication_module_injector.dart';
 import 'package:uptodo/features/authentication/domain/usecases/authentication_usecases.dart';
 import 'package:uptodo/features/authentication/presentation/state/authentication_cubit.dart';
+import 'package:uptodo/features/home/domain/home_module_injector.dart';
+import 'package:uptodo/features/home/domain/usecases/home_usecases.dart';
+import 'package:uptodo/features/home/presentation/state/home_cubit.dart';
 import 'package:uptodo/features/onboarding/domain/onboarding_module_injector.dart';
 import 'package:uptodo/features/onboarding/domain/usecases/onboarding_usecases.dart';
 import 'package:uptodo/features/onboarding/presentation/state/onboarding_cubit.dart';
@@ -21,5 +24,13 @@ final providers = [
       AuthenticationModuleInjector.resolve<FetchUser>(),
       OnboardingModuleInjector.resolve<CheckOnboardingStatus>(),
     )..checkLogin(),
+  ),
+  BlocProvider<HomeCubit>(
+    create: (_) => HomeCubit(
+      HomeModuleInjector.resolve<AddTodo>(),
+      HomeModuleInjector.resolve<DeleteTodo>(),
+      HomeModuleInjector.resolve<FetchTodos>(),
+      HomeModuleInjector.resolve<UpdateTodo>(),
+    ),
   ),
 ];

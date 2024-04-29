@@ -62,7 +62,7 @@ class HomeRemoteDatasourceImpl implements HomeRemoteDatasource {
       HomeEndpoints.userTodos(userId),
       params: {
         'limit': limit,
-        'skip': limit * page,
+        'skip': limit * (page - 1),
       },
     );
 
@@ -74,7 +74,7 @@ class HomeRemoteDatasourceImpl implements HomeRemoteDatasource {
       );
     }
 
-    return TodoResponseModel.fromJson(_result);
+    return TodoResponseModel.fromJson(_result['data']);
   }
 
   @override

@@ -14,7 +14,7 @@ class _$HomeModuleInjector extends HomeModuleInjector {
       ..registerFactory<HomeRemoteDatasource>(
           (c) => HomeRemoteDatasourceImpl(c<NetworkService>()))
       ..registerFactory<HomeRepository>(
-          (c) => HomeRepositoryImpl(c<InvalidType>()))
+          (c) => HomeRepositoryImpl(c<HomeRemoteDatasource>()))
       ..registerSingleton((c) => AddTodo(c<HomeRepository>()))
       ..registerSingleton((c) => DeleteTodo(c<HomeRepository>()))
       ..registerSingleton((c) => FetchTodos(c<HomeRepository>()))

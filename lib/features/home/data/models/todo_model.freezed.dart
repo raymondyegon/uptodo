@@ -21,7 +21,9 @@ TodoResponseModel _$TodoResponseModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$TodoResponseModel {
   List<TodoModel> get todos => throw _privateConstructorUsedError;
+  @JsonKey(fromJson: ServerTypeTransformer.toIntFromServer)
   int get limit => throw _privateConstructorUsedError;
+  @JsonKey(fromJson: ServerTypeTransformer.toIntFromServer)
   int get total => throw _privateConstructorUsedError;
   @JsonKey(fromJson: ServerTypeTransformer.toIntFromServer)
   int get skip => throw _privateConstructorUsedError;
@@ -40,8 +42,8 @@ abstract class $TodoResponseModelCopyWith<$Res> {
   @useResult
   $Res call(
       {List<TodoModel> todos,
-      int limit,
-      int total,
+      @JsonKey(fromJson: ServerTypeTransformer.toIntFromServer) int limit,
+      @JsonKey(fromJson: ServerTypeTransformer.toIntFromServer) int total,
       @JsonKey(fromJson: ServerTypeTransformer.toIntFromServer) int skip});
 }
 
@@ -94,8 +96,8 @@ abstract class _$$TodoResponseModelImplCopyWith<$Res>
   @useResult
   $Res call(
       {List<TodoModel> todos,
-      int limit,
-      int total,
+      @JsonKey(fromJson: ServerTypeTransformer.toIntFromServer) int limit,
+      @JsonKey(fromJson: ServerTypeTransformer.toIntFromServer) int total,
       @JsonKey(fromJson: ServerTypeTransformer.toIntFromServer) int skip});
 }
 
@@ -141,7 +143,9 @@ class __$$TodoResponseModelImplCopyWithImpl<$Res>
 class _$TodoResponseModelImpl implements _TodoResponseModel {
   const _$TodoResponseModelImpl(
       {final List<TodoModel> todos = const [],
+      @JsonKey(fromJson: ServerTypeTransformer.toIntFromServer)
       required this.limit,
+      @JsonKey(fromJson: ServerTypeTransformer.toIntFromServer)
       required this.total,
       @JsonKey(fromJson: ServerTypeTransformer.toIntFromServer)
       required this.skip})
@@ -160,8 +164,10 @@ class _$TodoResponseModelImpl implements _TodoResponseModel {
   }
 
   @override
+  @JsonKey(fromJson: ServerTypeTransformer.toIntFromServer)
   final int limit;
   @override
+  @JsonKey(fromJson: ServerTypeTransformer.toIntFromServer)
   final int total;
   @override
   @JsonKey(fromJson: ServerTypeTransformer.toIntFromServer)
@@ -206,7 +212,9 @@ class _$TodoResponseModelImpl implements _TodoResponseModel {
 abstract class _TodoResponseModel implements TodoResponseModel {
   const factory _TodoResponseModel(
       {final List<TodoModel> todos,
+      @JsonKey(fromJson: ServerTypeTransformer.toIntFromServer)
       required final int limit,
+      @JsonKey(fromJson: ServerTypeTransformer.toIntFromServer)
       required final int total,
       @JsonKey(fromJson: ServerTypeTransformer.toIntFromServer)
       required final int skip}) = _$TodoResponseModelImpl;
@@ -217,8 +225,10 @@ abstract class _TodoResponseModel implements TodoResponseModel {
   @override
   List<TodoModel> get todos;
   @override
+  @JsonKey(fromJson: ServerTypeTransformer.toIntFromServer)
   int get limit;
   @override
+  @JsonKey(fromJson: ServerTypeTransformer.toIntFromServer)
   int get total;
   @override
   @JsonKey(fromJson: ServerTypeTransformer.toIntFromServer)

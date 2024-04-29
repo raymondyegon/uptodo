@@ -8,7 +8,9 @@ part 'todo_model.g.dart';
 class TodoResponseModel with _$TodoResponseModel {
   const factory TodoResponseModel({
     @Default([]) List<TodoModel> todos,
+    @JsonKey(fromJson: ServerTypeTransformer.toIntFromServer)
     required int limit,
+    @JsonKey(fromJson: ServerTypeTransformer.toIntFromServer)
     required int total,
     @JsonKey(fromJson: ServerTypeTransformer.toIntFromServer) required int skip,
   }) = _TodoResponseModel;
