@@ -29,7 +29,9 @@ class HomeCubit extends HydratedCubit<HomeState> {
           HomeState.error(payload: state.payload.copyWith(error: l.message))),
       (r) => emit(HomeState.loaded(
           payload: state.payload.copyWith(
-              todoResponse: r, todos: r.todos + state.payload.todos))),
+              todoResponse: r,
+              todos:
+                  params.page == 1 ? r.todos : r.todos + state.payload.todos))),
     );
   }
 

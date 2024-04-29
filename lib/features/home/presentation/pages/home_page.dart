@@ -1,6 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sizer/sizer.dart';
 import 'package:uptodo/core/platform/platform.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:uptodo/core/presentation/presentation.dart';
@@ -47,9 +48,41 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     final sc = SizeConfig(context: context);
 
+    final user = context.watch<AuthenticationCubit>().state.payload.user;
+
     return PageMargin(
+      appBar: AppBar(
+        backgroundColor: AppColors.black,
+        centerTitle: false,
+        title: AutoSizeText(
+          'UpTodo',
+          style: AppStyles.textStyleAppBar().copyWith(
+            fontSize: 20.sp,
+          ),
+        ),
+        actions: [
+          AppCircularImage(
+            imageUrl: user!.image,
+            imageType: ImageType.networkImage,
+            radius: sc.heightScaledSize(30),
+          ),
+          SizedBox(width: 3.w),
+        ],
+      ),
       child: Column(
         children: [
+          // Row(
+          //   children: [
+          //     Autos
+          //     Spacer(),
+          //     AppCircularImage(
+          //       imageUrl: user!.image,
+          //       imageType: ImageType.networkImage,
+          //       radius: sc.heightScaledSize(30),
+          //     )
+          //   ],
+          // ),
+          SizedBox(height: sc.heightScaledSize(20)),
           Expanded(
             child: BlocListener<HomeCubit, HomeState>(
               listener: (_, state) => state.maybeWhen(
@@ -60,8 +93,7 @@ class _HomePageState extends State<HomePage> {
                 loaded: (payload) => {
                   pagingController.value = PagingState(
                     itemList: payload.todos,
-                    nextPageKey: payload.todoResponse?.total ==
-                            pagingController.itemList?.length
+                    nextPageKey: payload.todoResponse?.todos.isEmpty == true
                         ? null
                         : (pagingController.nextPageKey ?? 0) + 1,
                   ),
@@ -75,7 +107,19 @@ class _HomePageState extends State<HomePage> {
                       SizedBox(height: sc.heightScaledSize(10)),
                   builderDelegate: PagedChildBuilderDelegate<TodoModel>(
                     itemBuilder: (_, item, __) => ListTile(
-                      title: AutoSizeText(item.todo),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      tileColor: AppColors.black2,
+                      title: AutoSizeText(
+                        item.todo,
+                        style: AppStyles.textStyleBodyLarge(),
+                      ),
+                      subtitle: AutoSizeText(
+                        'Status: ${item.completed ? "Completed" : "Incomplete"}',
+                        style: AppStyles.textStyleBodyMedium()
+                            .copyWith(color: AppColors.gray),
+                      ),
                     ),
                   ),
                 ),
