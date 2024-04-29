@@ -8,7 +8,7 @@ import 'package:uptodo/features/home/data/models/todo_model.dart';
 import 'package:uptodo/features/home/domain/models/todo_params.dart';
 import 'home_endpoints.dart';
 
-abstract class HomeRemoteRepository implements RemoteDatasource {
+abstract class HomeRemoteDatasource implements RemoteDatasource {
   Future<TodoResponseModel> getUserTodos({required int userId, int page = 1});
 
   Future<TodoModel> addTodo(TodoParams params);
@@ -18,10 +18,10 @@ abstract class HomeRemoteRepository implements RemoteDatasource {
   Future<void> deleteTodo(int id);
 }
 
-class HomeRemoteRepositoryImpl implements HomeRemoteRepository {
+class HomeRemoteDatasourceImpl implements HomeRemoteDatasource {
   final NetworkService _networkService;
 
-  HomeRemoteRepositoryImpl(this._networkService);
+  HomeRemoteDatasourceImpl(this._networkService);
 
   @override
   Future<TodoModel> addTodo(TodoParams params) async {
