@@ -19,7 +19,7 @@ class HomeRepositoryImpl implements HomeRepository {
   }
 
   @override
-  Future<void> deleteTodo(int id) async => guardedApiCall<TodoModel>(
+  Future<void> deleteTodo(int id) async => guardedApiCall(
         () => _repo.deleteTodo(id),
       );
 

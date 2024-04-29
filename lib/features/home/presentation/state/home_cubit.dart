@@ -44,9 +44,9 @@ class HomeCubit extends HydratedCubit<HomeState> {
       (l) => emit(
           HomeState.error(payload: state.payload.copyWith(error: l.message))),
       (r) {
-        final updated = state.payload.todos;
+        final items = state.payload.todos;
 
-        updated.retainWhere((e) => e.id != todoId);
+        final updated = items.where((e) => e.id != todoId).toList();
 
         emit(HomeState.loaded(payload: state.payload.copyWith(todos: updated)));
       },
@@ -77,12 +77,12 @@ class HomeCubit extends HydratedCubit<HomeState> {
       (l) => emit(
           HomeState.error(payload: state.payload.copyWith(error: l.message))),
       (r) {
-        final updated = state.payload.todos;
+        final items = state.payload.todos;
 
-        updated.retainWhere((e) => e.id != params.todoId);
+        final updated = items.where((e) => e.id != params.todoId).toList();
 
         emit(HomeState.loaded(
-            payload: state.payload.copyWith(todos: [r] + state.payload.todos)));
+            payload: state.payload.copyWith(todos: [r] + updated)));
       },
     );
   }
