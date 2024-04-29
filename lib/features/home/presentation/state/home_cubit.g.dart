@@ -65,6 +65,21 @@ Map<String, dynamic> _$$LoadedHomeStateImplToJson(
       'runtimeType': instance.$type,
     };
 
+_$UpdatingHomeStateImpl _$$UpdatingHomeStateImplFromJson(
+        Map<String, dynamic> json) =>
+    _$UpdatingHomeStateImpl(
+      payload:
+          HomeStatePayload.fromJson(json['payload'] as Map<String, dynamic>),
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$UpdatingHomeStateImplToJson(
+        _$UpdatingHomeStateImpl instance) =>
+    <String, dynamic>{
+      'payload': instance.payload.toJson(),
+      'runtimeType': instance.$type,
+    };
+
 _$HomeStatePayloadImpl _$$HomeStatePayloadImplFromJson(
         Map<String, dynamic> json) =>
     _$HomeStatePayloadImpl(

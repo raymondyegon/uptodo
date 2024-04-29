@@ -14,6 +14,9 @@ class HomeState with _$HomeState {
   const factory HomeState.loaded({required HomeStatePayload payload}) =
       _LoadedHomeState;
 
+  const factory HomeState.updating({required HomeStatePayload payload}) =
+      _UpdatingHomeState;
+
   // const factory HomeState({required HomeStatePayload payload}) = _HomeState;
 
   factory HomeState.fromJson(Map json) => _$HomeStateFromJson(

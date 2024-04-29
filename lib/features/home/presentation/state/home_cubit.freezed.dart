@@ -24,6 +24,8 @@ HomeState _$HomeStateFromJson(Map<String, dynamic> json) {
       return _LoadingHomeState.fromJson(json);
     case 'loaded':
       return _LoadedHomeState.fromJson(json);
+    case 'updating':
+      return _UpdatingHomeState.fromJson(json);
 
     default:
       throw CheckedFromJsonException(json, 'runtimeType', 'HomeState',
@@ -40,6 +42,7 @@ mixin _$HomeState {
     required TResult Function(HomeStatePayload payload) error,
     required TResult Function(HomeStatePayload payload) loading,
     required TResult Function(HomeStatePayload payload) loaded,
+    required TResult Function(HomeStatePayload payload) updating,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -48,6 +51,7 @@ mixin _$HomeState {
     TResult? Function(HomeStatePayload payload)? error,
     TResult? Function(HomeStatePayload payload)? loading,
     TResult? Function(HomeStatePayload payload)? loaded,
+    TResult? Function(HomeStatePayload payload)? updating,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -56,6 +60,7 @@ mixin _$HomeState {
     TResult Function(HomeStatePayload payload)? error,
     TResult Function(HomeStatePayload payload)? loading,
     TResult Function(HomeStatePayload payload)? loaded,
+    TResult Function(HomeStatePayload payload)? updating,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -65,6 +70,7 @@ mixin _$HomeState {
     required TResult Function(_ErrorHomeState value) error,
     required TResult Function(_LoadingHomeState value) loading,
     required TResult Function(_LoadedHomeState value) loaded,
+    required TResult Function(_UpdatingHomeState value) updating,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -73,6 +79,7 @@ mixin _$HomeState {
     TResult? Function(_ErrorHomeState value)? error,
     TResult? Function(_LoadingHomeState value)? loading,
     TResult? Function(_LoadedHomeState value)? loaded,
+    TResult? Function(_UpdatingHomeState value)? updating,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -81,6 +88,7 @@ mixin _$HomeState {
     TResult Function(_ErrorHomeState value)? error,
     TResult Function(_LoadingHomeState value)? loading,
     TResult Function(_LoadedHomeState value)? loaded,
+    TResult Function(_UpdatingHomeState value)? updating,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -214,6 +222,7 @@ class _$InitialHomeStateImpl implements _InitialHomeState {
     required TResult Function(HomeStatePayload payload) error,
     required TResult Function(HomeStatePayload payload) loading,
     required TResult Function(HomeStatePayload payload) loaded,
+    required TResult Function(HomeStatePayload payload) updating,
   }) {
     return initial(payload);
   }
@@ -225,6 +234,7 @@ class _$InitialHomeStateImpl implements _InitialHomeState {
     TResult? Function(HomeStatePayload payload)? error,
     TResult? Function(HomeStatePayload payload)? loading,
     TResult? Function(HomeStatePayload payload)? loaded,
+    TResult? Function(HomeStatePayload payload)? updating,
   }) {
     return initial?.call(payload);
   }
@@ -236,6 +246,7 @@ class _$InitialHomeStateImpl implements _InitialHomeState {
     TResult Function(HomeStatePayload payload)? error,
     TResult Function(HomeStatePayload payload)? loading,
     TResult Function(HomeStatePayload payload)? loaded,
+    TResult Function(HomeStatePayload payload)? updating,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -251,6 +262,7 @@ class _$InitialHomeStateImpl implements _InitialHomeState {
     required TResult Function(_ErrorHomeState value) error,
     required TResult Function(_LoadingHomeState value) loading,
     required TResult Function(_LoadedHomeState value) loaded,
+    required TResult Function(_UpdatingHomeState value) updating,
   }) {
     return initial(this);
   }
@@ -262,6 +274,7 @@ class _$InitialHomeStateImpl implements _InitialHomeState {
     TResult? Function(_ErrorHomeState value)? error,
     TResult? Function(_LoadingHomeState value)? loading,
     TResult? Function(_LoadedHomeState value)? loaded,
+    TResult? Function(_UpdatingHomeState value)? updating,
   }) {
     return initial?.call(this);
   }
@@ -273,6 +286,7 @@ class _$InitialHomeStateImpl implements _InitialHomeState {
     TResult Function(_ErrorHomeState value)? error,
     TResult Function(_LoadingHomeState value)? loading,
     TResult Function(_LoadedHomeState value)? loaded,
+    TResult Function(_UpdatingHomeState value)? updating,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -386,6 +400,7 @@ class _$ErrorHomeStateImpl implements _ErrorHomeState {
     required TResult Function(HomeStatePayload payload) error,
     required TResult Function(HomeStatePayload payload) loading,
     required TResult Function(HomeStatePayload payload) loaded,
+    required TResult Function(HomeStatePayload payload) updating,
   }) {
     return error(payload);
   }
@@ -397,6 +412,7 @@ class _$ErrorHomeStateImpl implements _ErrorHomeState {
     TResult? Function(HomeStatePayload payload)? error,
     TResult? Function(HomeStatePayload payload)? loading,
     TResult? Function(HomeStatePayload payload)? loaded,
+    TResult? Function(HomeStatePayload payload)? updating,
   }) {
     return error?.call(payload);
   }
@@ -408,6 +424,7 @@ class _$ErrorHomeStateImpl implements _ErrorHomeState {
     TResult Function(HomeStatePayload payload)? error,
     TResult Function(HomeStatePayload payload)? loading,
     TResult Function(HomeStatePayload payload)? loaded,
+    TResult Function(HomeStatePayload payload)? updating,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -423,6 +440,7 @@ class _$ErrorHomeStateImpl implements _ErrorHomeState {
     required TResult Function(_ErrorHomeState value) error,
     required TResult Function(_LoadingHomeState value) loading,
     required TResult Function(_LoadedHomeState value) loaded,
+    required TResult Function(_UpdatingHomeState value) updating,
   }) {
     return error(this);
   }
@@ -434,6 +452,7 @@ class _$ErrorHomeStateImpl implements _ErrorHomeState {
     TResult? Function(_ErrorHomeState value)? error,
     TResult? Function(_LoadingHomeState value)? loading,
     TResult? Function(_LoadedHomeState value)? loaded,
+    TResult? Function(_UpdatingHomeState value)? updating,
   }) {
     return error?.call(this);
   }
@@ -445,6 +464,7 @@ class _$ErrorHomeStateImpl implements _ErrorHomeState {
     TResult Function(_ErrorHomeState value)? error,
     TResult Function(_LoadingHomeState value)? loading,
     TResult Function(_LoadedHomeState value)? loaded,
+    TResult Function(_UpdatingHomeState value)? updating,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -558,6 +578,7 @@ class _$LoadingHomeStateImpl implements _LoadingHomeState {
     required TResult Function(HomeStatePayload payload) error,
     required TResult Function(HomeStatePayload payload) loading,
     required TResult Function(HomeStatePayload payload) loaded,
+    required TResult Function(HomeStatePayload payload) updating,
   }) {
     return loading(payload);
   }
@@ -569,6 +590,7 @@ class _$LoadingHomeStateImpl implements _LoadingHomeState {
     TResult? Function(HomeStatePayload payload)? error,
     TResult? Function(HomeStatePayload payload)? loading,
     TResult? Function(HomeStatePayload payload)? loaded,
+    TResult? Function(HomeStatePayload payload)? updating,
   }) {
     return loading?.call(payload);
   }
@@ -580,6 +602,7 @@ class _$LoadingHomeStateImpl implements _LoadingHomeState {
     TResult Function(HomeStatePayload payload)? error,
     TResult Function(HomeStatePayload payload)? loading,
     TResult Function(HomeStatePayload payload)? loaded,
+    TResult Function(HomeStatePayload payload)? updating,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -595,6 +618,7 @@ class _$LoadingHomeStateImpl implements _LoadingHomeState {
     required TResult Function(_ErrorHomeState value) error,
     required TResult Function(_LoadingHomeState value) loading,
     required TResult Function(_LoadedHomeState value) loaded,
+    required TResult Function(_UpdatingHomeState value) updating,
   }) {
     return loading(this);
   }
@@ -606,6 +630,7 @@ class _$LoadingHomeStateImpl implements _LoadingHomeState {
     TResult? Function(_ErrorHomeState value)? error,
     TResult? Function(_LoadingHomeState value)? loading,
     TResult? Function(_LoadedHomeState value)? loaded,
+    TResult? Function(_UpdatingHomeState value)? updating,
   }) {
     return loading?.call(this);
   }
@@ -617,6 +642,7 @@ class _$LoadingHomeStateImpl implements _LoadingHomeState {
     TResult Function(_ErrorHomeState value)? error,
     TResult Function(_LoadingHomeState value)? loading,
     TResult Function(_LoadedHomeState value)? loaded,
+    TResult Function(_UpdatingHomeState value)? updating,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -730,6 +756,7 @@ class _$LoadedHomeStateImpl implements _LoadedHomeState {
     required TResult Function(HomeStatePayload payload) error,
     required TResult Function(HomeStatePayload payload) loading,
     required TResult Function(HomeStatePayload payload) loaded,
+    required TResult Function(HomeStatePayload payload) updating,
   }) {
     return loaded(payload);
   }
@@ -741,6 +768,7 @@ class _$LoadedHomeStateImpl implements _LoadedHomeState {
     TResult? Function(HomeStatePayload payload)? error,
     TResult? Function(HomeStatePayload payload)? loading,
     TResult? Function(HomeStatePayload payload)? loaded,
+    TResult? Function(HomeStatePayload payload)? updating,
   }) {
     return loaded?.call(payload);
   }
@@ -752,6 +780,7 @@ class _$LoadedHomeStateImpl implements _LoadedHomeState {
     TResult Function(HomeStatePayload payload)? error,
     TResult Function(HomeStatePayload payload)? loading,
     TResult Function(HomeStatePayload payload)? loaded,
+    TResult Function(HomeStatePayload payload)? updating,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -767,6 +796,7 @@ class _$LoadedHomeStateImpl implements _LoadedHomeState {
     required TResult Function(_ErrorHomeState value) error,
     required TResult Function(_LoadingHomeState value) loading,
     required TResult Function(_LoadedHomeState value) loaded,
+    required TResult Function(_UpdatingHomeState value) updating,
   }) {
     return loaded(this);
   }
@@ -778,6 +808,7 @@ class _$LoadedHomeStateImpl implements _LoadedHomeState {
     TResult? Function(_ErrorHomeState value)? error,
     TResult? Function(_LoadingHomeState value)? loading,
     TResult? Function(_LoadedHomeState value)? loaded,
+    TResult? Function(_UpdatingHomeState value)? updating,
   }) {
     return loaded?.call(this);
   }
@@ -789,6 +820,7 @@ class _$LoadedHomeStateImpl implements _LoadedHomeState {
     TResult Function(_ErrorHomeState value)? error,
     TResult Function(_LoadingHomeState value)? loading,
     TResult Function(_LoadedHomeState value)? loaded,
+    TResult Function(_UpdatingHomeState value)? updating,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -817,6 +849,184 @@ abstract class _LoadedHomeState implements HomeState {
   @override
   @JsonKey(ignore: true)
   _$$LoadedHomeStateImplCopyWith<_$LoadedHomeStateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UpdatingHomeStateImplCopyWith<$Res>
+    implements $HomeStateCopyWith<$Res> {
+  factory _$$UpdatingHomeStateImplCopyWith(_$UpdatingHomeStateImpl value,
+          $Res Function(_$UpdatingHomeStateImpl) then) =
+      __$$UpdatingHomeStateImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({HomeStatePayload payload});
+
+  @override
+  $HomeStatePayloadCopyWith<$Res> get payload;
+}
+
+/// @nodoc
+class __$$UpdatingHomeStateImplCopyWithImpl<$Res>
+    extends _$HomeStateCopyWithImpl<$Res, _$UpdatingHomeStateImpl>
+    implements _$$UpdatingHomeStateImplCopyWith<$Res> {
+  __$$UpdatingHomeStateImplCopyWithImpl(_$UpdatingHomeStateImpl _value,
+      $Res Function(_$UpdatingHomeStateImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? payload = null,
+  }) {
+    return _then(_$UpdatingHomeStateImpl(
+      payload: null == payload
+          ? _value.payload
+          : payload // ignore: cast_nullable_to_non_nullable
+              as HomeStatePayload,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$UpdatingHomeStateImpl implements _UpdatingHomeState {
+  const _$UpdatingHomeStateImpl({required this.payload, final String? $type})
+      : $type = $type ?? 'updating';
+
+  factory _$UpdatingHomeStateImpl.fromJson(Map<String, dynamic> json) =>
+      _$$UpdatingHomeStateImplFromJson(json);
+
+  @override
+  final HomeStatePayload payload;
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'HomeState.updating(payload: $payload)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UpdatingHomeStateImpl &&
+            (identical(other.payload, payload) || other.payload == payload));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, payload);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UpdatingHomeStateImplCopyWith<_$UpdatingHomeStateImpl> get copyWith =>
+      __$$UpdatingHomeStateImplCopyWithImpl<_$UpdatingHomeStateImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(HomeStatePayload payload) initial,
+    required TResult Function(HomeStatePayload payload) error,
+    required TResult Function(HomeStatePayload payload) loading,
+    required TResult Function(HomeStatePayload payload) loaded,
+    required TResult Function(HomeStatePayload payload) updating,
+  }) {
+    return updating(payload);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(HomeStatePayload payload)? initial,
+    TResult? Function(HomeStatePayload payload)? error,
+    TResult? Function(HomeStatePayload payload)? loading,
+    TResult? Function(HomeStatePayload payload)? loaded,
+    TResult? Function(HomeStatePayload payload)? updating,
+  }) {
+    return updating?.call(payload);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(HomeStatePayload payload)? initial,
+    TResult Function(HomeStatePayload payload)? error,
+    TResult Function(HomeStatePayload payload)? loading,
+    TResult Function(HomeStatePayload payload)? loaded,
+    TResult Function(HomeStatePayload payload)? updating,
+    required TResult orElse(),
+  }) {
+    if (updating != null) {
+      return updating(payload);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_InitialHomeState value) initial,
+    required TResult Function(_ErrorHomeState value) error,
+    required TResult Function(_LoadingHomeState value) loading,
+    required TResult Function(_LoadedHomeState value) loaded,
+    required TResult Function(_UpdatingHomeState value) updating,
+  }) {
+    return updating(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_InitialHomeState value)? initial,
+    TResult? Function(_ErrorHomeState value)? error,
+    TResult? Function(_LoadingHomeState value)? loading,
+    TResult? Function(_LoadedHomeState value)? loaded,
+    TResult? Function(_UpdatingHomeState value)? updating,
+  }) {
+    return updating?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitialHomeState value)? initial,
+    TResult Function(_ErrorHomeState value)? error,
+    TResult Function(_LoadingHomeState value)? loading,
+    TResult Function(_LoadedHomeState value)? loaded,
+    TResult Function(_UpdatingHomeState value)? updating,
+    required TResult orElse(),
+  }) {
+    if (updating != null) {
+      return updating(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$UpdatingHomeStateImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _UpdatingHomeState implements HomeState {
+  const factory _UpdatingHomeState({required final HomeStatePayload payload}) =
+      _$UpdatingHomeStateImpl;
+
+  factory _UpdatingHomeState.fromJson(Map<String, dynamic> json) =
+      _$UpdatingHomeStateImpl.fromJson;
+
+  @override
+  HomeStatePayload get payload;
+  @override
+  @JsonKey(ignore: true)
+  _$$UpdatingHomeStateImplCopyWith<_$UpdatingHomeStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

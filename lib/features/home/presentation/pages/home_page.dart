@@ -1,6 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:sizer/sizer.dart';
 import 'package:uptodo/core/platform/platform.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
@@ -9,6 +10,7 @@ import 'package:uptodo/features/authentication/presentation/state/authentication
 import 'package:uptodo/features/home/data/models/todo_model.dart';
 import 'package:uptodo/features/home/domain/models/todo_params.dart';
 import 'package:uptodo/features/home/presentation/state/home_cubit.dart';
+import 'package:uptodo/features/home/presentation/widgets/add_todo_dialog.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -62,35 +64,39 @@ class _HomePageState extends State<HomePage> {
         ),
         actions: [
           AppCircularImage(
-            imageUrl: user!.image,
+            imageUrl: user?.image ?? "",
             imageType: ImageType.networkImage,
             radius: sc.heightScaledSize(30),
           ),
           SizedBox(width: 3.w),
         ],
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          showModalBottomSheet(
+            context: context,
+            backgroundColor: AppColors.gray,
+            builder: (_) => const AddTodoDialog(),
+          );
+        },
+        child: const Icon(Icons.add),
+      ),
       child: Column(
         children: [
-          // Row(
-          //   children: [
-          //     Autos
-          //     Spacer(),
-          //     AppCircularImage(
-          //       imageUrl: user!.image,
-          //       imageType: ImageType.networkImage,
-          //       radius: sc.heightScaledSize(30),
-          //     )
-          //   ],
-          // ),
-          SizedBox(height: sc.heightScaledSize(20)),
+          SizedBox(height: sc.heightScaledSize(10)),
           Expanded(
             child: BlocListener<HomeCubit, HomeState>(
               listener: (_, state) => state.maybeWhen(
                 orElse: () => {},
                 error: (payload) => {
                   pagingController.error = payload.error,
+                  EasyLoading.dismiss(),
+                },
+                updating: (_) => {
+                  EasyLoading.show(status: 'Loading'),
                 },
                 loaded: (payload) => {
+                  EasyLoading.dismiss(),
                   pagingController.value = PagingState(
                     itemList: payload.todos,
                     nextPageKey: payload.todoResponse?.todos.isEmpty == true
@@ -107,6 +113,7 @@ class _HomePageState extends State<HomePage> {
                       SizedBox(height: sc.heightScaledSize(10)),
                   builderDelegate: PagedChildBuilderDelegate<TodoModel>(
                     itemBuilder: (_, item, __) => ListTile(
+                      onTap: () {},
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8),
                       ),
@@ -119,6 +126,12 @@ class _HomePageState extends State<HomePage> {
                         'Status: ${item.completed ? "Completed" : "Incomplete"}',
                         style: AppStyles.textStyleBodyMedium()
                             .copyWith(color: AppColors.gray),
+                      ),
+                      contentPadding: EdgeInsets.symmetric(horizontal: 3.w),
+                      trailing: Icon(
+                        Icons.arrow_forward_ios,
+                        color: AppColors.gray,
+                        size: sc.heightScaledSize(18),
                       ),
                     ),
                   ),

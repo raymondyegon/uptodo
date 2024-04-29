@@ -36,7 +36,7 @@ class HomeCubit extends HydratedCubit<HomeState> {
   }
 
   Future<void> deleteTodo({required int todoId}) async {
-    emit(HomeState.loading(payload: state.payload.copyWith()));
+    emit(HomeState.updating(payload: state.payload.copyWith()));
 
     final result = await _deleteTodo(todoId);
 
@@ -54,7 +54,7 @@ class HomeCubit extends HydratedCubit<HomeState> {
   }
 
   Future<void> addTodo({required TodoParams params}) async {
-    emit(HomeState.loading(payload: state.payload.copyWith()));
+    emit(HomeState.updating(payload: state.payload.copyWith()));
 
     final result = await _addTodo(params);
 
@@ -68,8 +68,8 @@ class HomeCubit extends HydratedCubit<HomeState> {
     );
   }
 
-  Future<void> updatedTodo({required TodoParams params}) async {
-    emit(HomeState.loading(payload: state.payload.copyWith()));
+  Future<void> updateTodo({required TodoParams params}) async {
+    emit(HomeState.updating(payload: state.payload.copyWith()));
 
     final result = await _updateTodo(params);
 

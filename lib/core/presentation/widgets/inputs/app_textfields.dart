@@ -81,18 +81,18 @@ class _AppTextFieldsState extends State<AppTextFields> {
       onChanged: widget.onChanged,
       focusNode: widget.focusNode,
       style: widget.textFieldStyle ??
-          Theme.of(context)
-              .textTheme
-              .bodyLarge!
-              .copyWith(fontSize: _sc.heightScaledSize(14)),
+          Theme.of(context).textTheme.bodyLarge!.copyWith(
+              fontSize: _sc.heightScaledSize(14), color: AppColors.white),
       textAlignVertical: widget.textAlignVertical ?? TextAlignVertical.top,
       obscuringCharacter: '●',
       keyboardType: widget.keyboard,
       maxLength: widget.maxLength,
-      minLines: widget.multiline ? null : 1,
-      /** widget.minLines**/
-      maxLines: widget.multiline ? null : 1,
-      /** widget.maxLines**/
+      minLines: widget.minLines,
+      maxLines: widget.isObscure ? 1 : (widget.minLines ?? 0) + 1,
+      // minLines: widget.multiline ? null : 1,
+      // /** widget.minLines**/
+      // maxLines: widget.multiline ? null : 1,
+      // /** widget.maxLines**/
       expands: widget.multiline,
       validator: widget.validator,
       onEditingComplete: widget.onEditingComplete,
@@ -120,7 +120,7 @@ class _AppTextFieldsState extends State<AppTextFields> {
         hintStyle: widget.hintTextStyle ??
             Theme.of(context).textTheme.titleMedium!.copyWith(
                   fontSize: _sc.heightScaledSize(14),
-                  color: AppColors.black2.withOpacity(0.6),
+                  color: AppColors.black2,
                 ),
         fillColor: widget.fillColor ?? const Color.fromARGB(255, 29, 29, 29),
         filled: true,
