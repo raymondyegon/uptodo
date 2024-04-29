@@ -9,7 +9,6 @@ class AppPages {
   // Authentication
   static String auth = '/auth';
   static const login = 'login';
-  static const signup = 'signup';
 
   // Home page
   static const home = '/home';
@@ -18,14 +17,14 @@ class AppPages {
 // Builder route widgets for different routes
 class AppWidgets {
   // Initial App Route
-  // static Widget landingWidget(BuildContext context, GoRouterState state) =>
-  //     const LandingPage();
+  static Widget landingWidget(BuildContext context, GoRouterState state) =>
+      const LandingPage();
 
   // Onboarding widget
   static Widget onboardingWidget(BuildContext context, GoRouterState state) =>
       const OnboardingPage();
 
 // Login Widget
-  // static Widget loginWidget(BuildContext context, GoRouterState state) =>
-  //     const LoginPage();
+  static Widget loginWidget(BuildContext context, GoRouterState state) =>
+      const LoginPage();
 }

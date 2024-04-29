@@ -90,7 +90,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                             .read<OnboardingCubit>()
                             .persistOnboardingStatus();
 
-                        // context.goNamed('auth');
+                        context.goNamed('auth');
                       },
                       child: AutoSizeText(
                         'Skip',
@@ -133,7 +133,6 @@ class _OnboardingPageState extends State<OnboardingPage> {
                               curve: Curves.easeIn,
                             );
                           }
-                          // context.goNamed('auth');
                         },
                         child: AutoSizeText(
                           'BACK',
@@ -151,6 +150,12 @@ class _OnboardingPageState extends State<OnboardingPage> {
                                 duration: const Duration(milliseconds: 500),
                                 curve: Curves.easeIn,
                               );
+                            } else {
+                              context
+                                  .read<OnboardingCubit>()
+                                  .persistOnboardingStatus();
+
+                              context.goNamed('auth');
                             }
                           },
                           label: index == 2 ? 'GET STARTED' : 'NEXT',
