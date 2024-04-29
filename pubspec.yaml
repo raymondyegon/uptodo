@@ -82,6 +82,9 @@ dependencies:
   # Located the path of local device storage
   path_provider: ^2.0.12
 
+  # to cache our network images
+  cached_network_image: ^3.2.3
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
