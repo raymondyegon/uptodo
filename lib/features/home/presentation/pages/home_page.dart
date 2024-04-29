@@ -86,26 +86,36 @@ class _HomePageState extends State<HomePage> {
         children: [
           SizedBox(height: sc.heightScaledSize(10)),
           Expanded(
-            child: BlocListener<HomeCubit, HomeState>(
-              listener: (_, state) => state.maybeWhen(
-                orElse: () => {},
-                error: (payload) => {
-                  pagingController.error = payload.error,
-                  EasyLoading.dismiss(),
-                },
-                updating: (_) => {
-                  EasyLoading.show(status: 'Loading'),
-                },
-                loaded: (payload) => {
-                  EasyLoading.dismiss(),
-                  pagingController.value = PagingState(
-                    itemList: payload.todos,
-                    nextPageKey: payload.todoResponse?.todos.isEmpty == true
-                        ? null
-                        : (pagingController.nextPageKey ?? 0) + 1,
+            child: MultiBlocListener(
+              listeners: [
+                BlocListener<AuthenticationCubit, AuthenticationState>(
+                  listener: (_, state) => state.maybeWhen(
+                    orElse: () => {},
+                    loggedOut: (_) => context.goNamed('auth'),
                   ),
-                },
-              ),
+                ),
+                BlocListener<HomeCubit, HomeState>(
+                  listener: (_, state) => state.maybeWhen(
+                    orElse: () => {},
+                    error: (payload) => {
+                      pagingController.error = payload.error,
+                      EasyLoading.dismiss(),
+                    },
+                    updating: (_) => {
+                      EasyLoading.show(status: 'Loading'),
+                    },
+                    loaded: (payload) => {
+                      EasyLoading.dismiss(),
+                      pagingController.value = PagingState(
+                        itemList: payload.todos,
+                        nextPageKey: payload.todoResponse?.todos.isEmpty == true
+                            ? null
+                            : (pagingController.nextPageKey ?? 0) + 1,
+                      ),
+                    },
+                  ),
+                ),
+              ],
               child: RefreshIndicator(
                 onRefresh: () async => pagingController.refresh(),
                 child: PagedListView.separated(

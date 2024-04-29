@@ -53,6 +53,12 @@ flutter build (appbundle | apk) -t lib/main.dart --release --flavor production -
 flutter build ios -t lib/main.dart --release --flavor production --dart-define ENVIRONMENT_VAR=PRODUCTION
 ```
 
+## Screenshots
+
+| **Login Screen**                            | **Home Screen**                             | **Task Detail Screen**                      |
+| ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
+| ![In action](./screenshots/auth_screen.png) | ![In action](./screenshots/home_screen.png) | ![In action](./screenshots/task_detail.png) |
+
 ## Known issues
 
 For locally added taks, they are only saved locally and when a new task is created the task cannot be deleted using API calls. This also happens when adding a new task.
